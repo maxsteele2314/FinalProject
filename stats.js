@@ -33,7 +33,7 @@ var xScale = d3.scaleLinear()
             .range([0, width])
 
 var yScale = d3.scaleLinear()
-            .domain([-15, 20])
+            .domain([-15, 15])
             .range([height,0])
 //sets up axis
 
