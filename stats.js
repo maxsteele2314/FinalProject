@@ -8,12 +8,13 @@ promise.then(function(data)
 
     function(Error)
 {
-    return ("error", Error)
+    return ("fail", Error)
 }
-
+//so changes can be made easily
 var screen = {width:825, height:800}
 var margins = {top:20, right:125, bottom:50, left:85}
 
+// setup svg to build graph
 var setup = function(data)
 {
     d3.select("svg")
@@ -34,10 +35,11 @@ var xScale = d3.scaleLinear()
 var yScale = d3.scaleLinear()
             .domain([-15, 15])
             .range([height,0])
+//sets up axis
 
 var xAxis = d3.axisBottom(xScale)
 var yAxis = d3.axisLeft(yScale)
-var cScale = d3.scaleOrdinal(['#0047AB','#C6C6C6','#FF0000','#808080','#000000'])
+var cScale = d3.scaleOrdinal(['#0047AB','#C6C6C6','#FF0000','#808080','#000000']) // matches colors on legend
 
 var svg = d3.select("svg")
     .append("svg")
@@ -84,7 +86,9 @@ d3.select(".axis")
     .attr("id", "yAxis")
     .attr("transform", "translate("+margins.left+", "+ margins.top +")")
     .call(yAxis)
-
+    
+//finish axis and append text and put them in respect of margins
+    
 drawLine(data, xScale, yScale, cScale, "WINS")
 drawLine(data, xScale, yScale, cScale, "Draft")
 drawLine(data, xScale, yScale, cScale, "PPG")
@@ -92,7 +96,7 @@ drawLine(data, xScale, yScale, cScale, "MCD")
 drawLine(data, xScale, yScale, cScale, "RIV")
 
    
-    
+    //select each category from csv file make button with on click (repeat over and over for each button)
 d3.select(".WINS")
     .on("click", function()
 {
@@ -105,7 +109,7 @@ d3.select(".WINS")
    
 })
     
-
+//
 d3.select(".Draft")
     .text("Players drafted per Year")
     .on("click", function()
@@ -159,8 +163,10 @@ d3.select("#graph")
     .enter()
     .append("circle")
     
+    //add circles to each given point
     
 }
+//make legend and try to add cscale
 var columns = 
     ["WINS","Draft","PPG","MCD","RIV"]
 var drawLegend = function(columns, cScale)
@@ -194,6 +200,9 @@ gs.append("text")
     //.attr("fill", "black")
     
 }
+//cant get to work not sure issue for all things below
+//num or dimension is screwing up I think or wrong peramter somwhere 
+
 var drawLine= function(data, xScale, yScale, cScale, dimension)
 {
 var arrays = d3.select("#graph")
@@ -221,7 +230,7 @@ var drawplots = function(data, xScale, yScale, cScale, dimension)
     .selectAll("circle")
     .data(data)
     .transition()
-    .duration(500)
+    .duration(50)
     .attr("fill", function(trash)
     {
         return cScale(dimension)
