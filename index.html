@@ -1,20 +1,33 @@
 <html>
 <head>
-     <script src="https://d3js.org/d3.v5.min.js"></script>
-        <script src="basketball.js"></script>
-        <link href="style.css"type="text/css" rel="stylesheet"/>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
-    <script src="http://static.fusioncharts.com/code/latest/fusioncharts.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://d3js.org/d3.v5.min.js"></script> 
     
 </head>
-    <body>
+<body>
     
-        <svg>
-        </svg>
-        
-        <div id="chart-container">
-  
-</div>
-        
-    </body>
+    <div class="container">
+        <div class="text-block">
+            <h1>College Basketball: Kentucky vs Louisville</h1>
+            <p>Why Kentucky is the better team.</p>
+        </div>
+    </div>
+    
+    <svg id="graph1"></svg>
+    <div id="button"><button id="click">idk yet</button></div>
+    <h2 id="title"></h2>
+    <p1 id="sub"></p1>
+    <svg id="graph2"></svg>
+    
+    <div id="tooltip" class="hidden">
+        <p><span id="value"></span></p>
+        <p><span id="info"></span></p>
+    </div>
+    
+    <br>
+    
+    <script src="basketball.js"></script>
+    
+</body>
+
 </html>
