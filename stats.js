@@ -33,7 +33,7 @@ var xScale = d3.scaleLinear()
             .range([0, width])
 
 var yScale = d3.scaleLinear()
-            .domain([-15, 15])
+            .domain([-15, 20])
             .range([height,0])
 //sets up axis
 
@@ -174,8 +174,7 @@ var drawLegend = function(columns, cScale)
     d3.select("svg")
         .append("g")
         .attr("id", "legend")
-        .attr("transform", "translate("+(screen.width-margins.right + 30)+", "+(margins.top)+")");
-      //console.log("data", data)       
+        .attr("transform", "translate("+(screen.width-margins.right + 30)+", "+(margins.top)+")");       
 var gs = d3.select("#legend")
 .selectAll("g")
 .data(columns)
@@ -197,7 +196,7 @@ gs.append("text")
     .text(function(d){return d})
     .attr("x", 40)
     .attr("y", 10)
-    //.attr("fill", "black")
+    
     
 }
 //cant get to work not sure issue for all things below
@@ -206,9 +205,6 @@ gs.append("text")
 var drawLine= function(data, xScale, yScale, cScale, dimension)
 {
 var arrays = d3.select("#graph")
-    // .selectALL("#graph)
-    // .data(data)
-    // .enter()
     .append("g")
     .attr("fill", "none")
     .attr("stroke", cScale(dimension))
@@ -216,7 +212,7 @@ var arrays = d3.select("#graph")
     
 var lineGenerator= d3.line()
         .x(function(num) { return xScale(num.Year);})
-        .y(function(num) { return yScale(num[dimension]);})
+        .y(function(num) { return yScale(num['dimension']);})
         
 
 arrays.append("path") 
@@ -241,8 +237,10 @@ var drawplots = function(data, xScale, yScale, cScale, dimension)
     })
     .attr("cy", function(num)
          {
-        return yScale(num[dimension])
+    
+        return yScale(num['dimension'])
     })
-    .attr("r", 6)
+    .attr("r", 4)
    
+    
 }
