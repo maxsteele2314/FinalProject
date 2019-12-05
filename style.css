@@ -15,14 +15,14 @@ svg
 }
 
 body {
-    background-color: mintcream;
+    background-color: snow;
 }
 
 h1 {
     
     left: 18%;
     top: 5%;
-    border-style: double;
+    border-style: dashed;
     height: 40px;
     width: px;
     background-color: white;

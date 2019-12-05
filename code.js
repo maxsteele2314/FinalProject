@@ -11,8 +11,8 @@ promise.then(function(data)
     return ("error", Error)
 }
 
-var screen = {width:800, height:750}
-var margins = {top:30, right:140, bottom:50, left:85}
+var screen = {width:825, height:800}
+var margins = {top:20, right:125, bottom:50, left:85}
 
 var setup = function(data)
 {
